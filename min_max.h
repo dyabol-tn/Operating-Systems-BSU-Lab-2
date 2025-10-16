@@ -1,7 +1,8 @@
 #pragma once
 
 #include <iostream>
+#include "Windows.h"
 
 using namespace std;
 
-void findMinMax(int* arr, int size);
+DWORD WINAPI MinMax(LPVOID lpParameters);

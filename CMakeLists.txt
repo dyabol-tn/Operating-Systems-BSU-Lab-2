@@ -1,12 +1,20 @@
-﻿# CMakeList.txt: проект CMake для OS_Laboratory_Work_2; включите исходный код и определения,
-# укажите здесь логику для конкретного проекта.
-#
+﻿cmake_minimum_required(VERSION 3.12)
+project(OS_Laboratory_Work_2)
 
-# Добавьте источник в исполняемый файл этого проекта.
-add_executable (OS_Laboratory_Work_2 "main.cpp" "main.h" "min_max.cpp" "min_max.h" "average.cpp" "average.h" "core.cpp" "core.h")
+# Установка стандарта C++ (более современный способ)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET OS_Laboratory_Work_2 PROPERTY CXX_STANDARD 20)
-endif()
+# Добавление исполняемого файла со всеми исходниками
+add_executable(OS_Laboratory_Work_2 
+    "main.cpp"
+    "main.h"
+    "min_max.cpp" 
+    "min_max.h"
+    "average.cpp"
+    "average.h"
+    "structure.h"
+ "test_average.h" "test_min_max.h" "test_main.h" "test_average.cpp" "test_min_max.cpp" "test_main.cpp")
 
-# TODO: Добавьте тесты и целевые объекты, если это необходимо.
+# Включение каталогов для заголовочных файлов
+target_include_directories(OS_Laboratory_Work_2 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
